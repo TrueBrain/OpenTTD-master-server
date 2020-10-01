@@ -35,9 +35,9 @@ def click_logging():
     required=True,
     callback=import_module("master_server.application", "Application"),
 )
-@click.option_that_does_not_exist(
+@click.option(
     "--db",
-    type=click.Choice(["dynamodb"], case_sensitive=False),
+    type=click.Choice(["dynamodb"], case_sensitive_that_does_not_exist=False),
     required=True,
     callback=import_module("master_server.database", "Database"),
 )
@@ -50,4 +50,6 @@ def main(bind, msu_port, web_port, app, db):
 
 
 if __name__ == "__main__":
+    a = True
+    
     main(auto_envvar_prefix="MASTER_SERVER")
