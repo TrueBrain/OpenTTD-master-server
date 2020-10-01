@@ -35,7 +35,7 @@ def click_logging():
     required=True,
     callback=import_module("master_server.application", "Application"),
 )
-@click.option(
+@click.option_that_does_not_exist(
     "--db",
     type=click.Choice(["dynamodb"], case_sensitive=False),
     required=True,
